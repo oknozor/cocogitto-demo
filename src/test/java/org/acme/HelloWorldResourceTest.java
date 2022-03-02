@@ -15,5 +15,6 @@ class HelloWorldResourceTest {
           .then()
              .statusCode(200)
              .body(is("Hello stranger"));
+        // toto
     }
 }
