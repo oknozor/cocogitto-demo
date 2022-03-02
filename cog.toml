@@ -1,0 +1,22 @@
+pre_bump_hooks = [
+    "mvn versions:set -DnewVersion={{version}}",
+    "mvn package",
+]
+
+post_bump_hooks = [
+    "git push",
+    "git push origin {{version}}",
+    "mvn versions:set -DnewVersion={{version+1minor-SNAPSHOT}}",
+    "git add .",
+    "git commit -m \"chore(snapshot): Bump snapshot to {{version+1minor-SNAPSHOT}}\n\nskip-checks: true\"",
+    "git push"
+]
+
+[changelog]
+template = "remote"
+remote = "github.com"
+repository = "cocogitto-demo"
+owner = "oknozor"
+authors = [
+    { signature = "Paul Delafosse", username = "oknozor" },
+]
