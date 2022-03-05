@@ -4,7 +4,7 @@ pre_bump_hooks = [
 ]
 
 post_bump_hooks = [
-    "git push",
+    "  push",
     "git push origin {{version}}",
     "mvn versions:set -DnewVersion={{version+1minor-SNAPSHOT}}",
     "git add .",
